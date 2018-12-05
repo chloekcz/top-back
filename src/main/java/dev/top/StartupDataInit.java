@@ -7,8 +7,10 @@ import org.springframework.stereotype.Component;
 
 import dev.top.entities.Collegue;
 import dev.top.entities.Version;
+import dev.top.entities.Vote;
 import dev.top.repos.CollegueRepo;
 import dev.top.repos.VersionRepo;
+import dev.top.repos.VoteRepo;
 
 @Component
 public class StartupDataInit {
@@ -18,6 +20,9 @@ public class StartupDataInit {
     
     @Autowired
     CollegueRepo collegueRepo;
+    
+    @Autowired
+    VoteRepo voteRepo;
 
     @EventListener(ContextRefreshedEvent.class)
     public void init() {
@@ -31,11 +36,14 @@ public class StartupDataInit {
         
         
         if(this.collegueRepo.count() <= 0) {
-        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Bibi", 0));
-        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Kiki", 0));
-        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Gégé", 0));
-        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Mimi", 0));
+        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Bibi", 0, "Durand", "Robert", "robert.durand@gmail.com", "8 rue de la liberté, 33110 Le Bouscat"));
+        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Kiki", 0, "Kiwi", "Christophe", "criridu38@gmail.com", "29 avenue Georges, 38000 Ouganda"));
+        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Gégé", 0, "Darmont", "Gérard", "gege@gmail.com", "01 rue du soleil, 45000 Italie"));
+        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Mimi", 0, "Casserole", "Cassandra", "cass@gmail.com", "02 rue tableau, 33000 Bordeaux"));
+        	this.collegueRepo.save(new Collegue("https://media.giphy.com/media/M7oKkaur56EFO/giphy.gif", "Georges", 0, "Delajungle", "Georges", "georges@gmail.com", "26 rue de maurice, 33000 Bordeaux"));
         }
+        
+        
 
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.top.entities.Collegue;
 import dev.top.repos.CollegueRepo;
+import dev.top.repos.VoteRepo;
 
 @CrossOrigin
 @RestController()
@@ -23,20 +24,22 @@ public class ColleguesController {
 	@Autowired
 	private CollegueRepo collegueRepo;
 	
+
 	@GetMapping
 	public List<Collegue> findAll() {
 		return this.collegueRepo.findAll();
 	}
 	
+	@GetMapping("/{pseudo}")
+	public Collegue find(@PathVariable String pseudo) {
+		return this.collegueRepo.findByPseudo(pseudo);
+	}
+	
 	@PatchMapping("/{pseudo}")
 	public Collegue patch(@PathVariable String pseudo, @RequestBody Map<String, String> vote) {
-		
 		String resultat = vote.get("actions");
-		
 		Collegue collegue = collegueRepo.findByPseudo(pseudo);
-		
 		int ancienScore = collegue.getScore();
-		
 		int nouveauScore;
 		if(resultat.equals("AIMER")) {
 			nouveauScore = ancienScore + 10;
@@ -44,9 +47,9 @@ public class ColleguesController {
 			nouveauScore = ancienScore - 5;
 		}
 		collegue.setScore(nouveauScore);
-		
 		collegueRepo.save(collegue);
-		return collegue;
-		
+		return collegue;	
 	}
+	
+	
 }

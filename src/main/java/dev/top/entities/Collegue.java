@@ -20,6 +20,9 @@ public class Collegue {
 	private String email;
 	private String adresse;
 	
+	private String matricule;
+	
+
 	public Collegue() {
 		
 	}
@@ -97,7 +100,18 @@ public class Collegue {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
+
+	public String getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
+	}
 	
+	
+
+
 	
 
 }

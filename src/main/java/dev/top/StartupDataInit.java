@@ -7,10 +7,8 @@ import org.springframework.stereotype.Component;
 
 import dev.top.entities.Collegue;
 import dev.top.entities.Version;
-import dev.top.entities.Vote;
 import dev.top.repos.CollegueRepo;
 import dev.top.repos.VersionRepo;
-import dev.top.repos.VoteRepo;
 
 @Component
 public class StartupDataInit {
@@ -21,9 +19,6 @@ public class StartupDataInit {
     @Autowired
     CollegueRepo collegueRepo;
     
-    @Autowired
-    VoteRepo voteRepo;
-
     @EventListener(ContextRefreshedEvent.class)
     public void init() {
 

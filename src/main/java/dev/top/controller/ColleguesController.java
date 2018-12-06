@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.top.entities.Collegue;
 import dev.top.repos.CollegueRepo;
-import dev.top.repos.VoteRepo;
 
 @CrossOrigin
 @RestController()

@@ -14,7 +14,7 @@ import dev.top.repos.VoteRepo;
 
 @CrossOrigin
 @RestController()
-@RequestMapping()
+@RequestMapping("/vote")
 public class VoteController {
 	
 	@Autowired

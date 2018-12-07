@@ -28,7 +28,7 @@ public class ColleguesController {
 	
 	@Autowired
 	private CollegueRepo collegueRepo;
-	
+		
 
 	@GetMapping
 	public List<Collegue> findAll() {
